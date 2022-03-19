@@ -31,9 +31,10 @@ string makePalindrome(vector<int> &count) {
             part2 = (char) (i + 'A'); //int형으로 저장되어 있으므로 char로 형 변환 
         }
         // 남은 수의 절반을 나누어 part1과 part3에 이어 붙인다 or 알파벳 수가 처음부터 짝수인 경우 
-        for (int j = 0; j < count[i] / 2; j++) { 
-            part1 += (char) (i + 'A');  
-            part3 = (char) (i + 'A') + part3;
+        for (int j = 0; j < count[i] / 2; j++) { // 한쌍으로 만들어주기 위해 2로 나눠주기
+            part1 += (char) (i + 'A');  // A를 더해서 인덱스를 알파벳 아스키코드로 바꿔주고, 아스키코드를 char로 형 변환 
+                                        // 여러쌍일 수도 있으므로 += 연산자를 사용해준다
+            part3 = (char) (i + 'A') + part3; // part1과 동일
         }
     }
 
