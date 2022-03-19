@@ -9,11 +9,11 @@ using namespace std;
 typedef pair<int, int> ci;  // pair<int, int>에 ci라는 별칭 부여
 
 // 비교함수
-bool cmp(const ci &a, const ci &b) {
-    if (a.second == b.second) {
-        return a.first < b.first;
+bool cmp(const ci &a, const ci &b) { 
+    if (a.second == b.second) { //개수(second)가 같다면
+        return a.first < b.first; //값(first)에 대해 오름차순
     }
-    return a.second > b.second;
+    return a.second > b.second; //개수(second) 내림차순 정렬
 }
 
 int findMode(int n, vector<int> &arr) {
@@ -27,6 +27,8 @@ int findMode(int n, vector<int> &arr) {
 	//최빈값 구하기 
     for (int i = 1; i < n; i++) {
         // 만약 직전 값과 같은 값이라면
+        if (arr[i] == arr[i - 1]) {
+            count[current_idx].second++; //해당 값의 개수 늘려주기 
         } else {
             // 그렇지 않다면, 새로운 값을 count 벡터에 삽입
             count.push_back({arr[i], 1}); 
@@ -40,15 +42,16 @@ int findMode(int n, vector<int> &arr) {
     }
 
     // 정렬
-    // 1. 값(first)에 대해 오름차순 
-    // 2.개수(second)에 대해 내림차순 
-    sort(count.begin(), count.end(), cmp); //최빈값을 찾아야하므로 개수에 대해 내림차순 
+    // 1. 개수(second)에 대해 내림차순 
+    // 2. 개수가 같다면 값(first)에 대해 오름차순 
+    sort(count.begin(), count.end(), cmp); //count에 대해 cmp 함수로 정렬
 
     // 최빈 값이 여러개인지 확인
-    if (count[0].second == count[1].second) {
-        return count[1].first; //두번째로  
+    if (count[0].second == count[1].second) { //최빈값이 같은 경우가 있다면
+        return count[1].first; //두번째로 작은 값(first) 반환. 이것 때문에 count[0]과 count[1]만 비교한 것임
     }
-    return count[0].first;
+    // 최빈 값이 하나뿐이라면 해당하는 값(first) 반환 
+    return count[0].first; 
 }
 
 /**
