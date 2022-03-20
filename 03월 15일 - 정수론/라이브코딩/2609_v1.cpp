@@ -3,7 +3,8 @@
 // 튜터분이 작성하신 라이브 코드를 일부 수정했습니다. 
 //
 
-// version 1. 두 수 중 작은 수 기준으로 돌리면서 최대공약수 구하기 (비추천)
+// version 1. 두 수 중 작은 수 기준으로 돌리면서 최대공약수 구하기
+// 비추천! version 2보다 비효율적임. 시간복잡도가 O(n)으로 더 크다.
 
 #include <iostream>
 
@@ -18,7 +19,7 @@ int gcdBad(int a, int b) {
             return i; 
         }
     }
-    return 1; // 이 코드를 작성하지 않으면, if문에 안 들어갔을 때 gcdBad가 어떤 값을 return할지 몰라서 에러가 남 
+    return 1; // 이 코드를 작성하지 않으면, if문에 안 들어갔을 때 gcdBad가 어떤 값을 return할지 몰라서 경고 발생
 }
 
 int main() {
