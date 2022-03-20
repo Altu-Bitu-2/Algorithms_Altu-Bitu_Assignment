@@ -59,7 +59,6 @@ int back() {
 int main() {
     int n, x;
     string cmd; //명령 
-    queue<int> q;
 
     //입력
     cin >> n;
