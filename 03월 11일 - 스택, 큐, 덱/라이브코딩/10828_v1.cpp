@@ -58,7 +58,7 @@ int main() {
             if (!full()) { //라이브러리 사용시엔 필요 x
             	push(x);
             }
-            continue;
+            continue; //else if로 작성해도 된다. 여기서는 continue로 끊어줌
         }
         if (cmd == "pop") {
             if (empty()) { //스택이 비어있다면
