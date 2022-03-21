@@ -17,7 +17,7 @@ int divideAndStoi(string& only_num, int only_num_length, int& a_length, int& b_l
 	//a, b 나누기 
 	for (int i = 0; i < a_length; i++) { //a만 저장 
 		string_a[i] = only_num[i];
-		cout << string_a[i];
+		cout << string_a[i]; //!a를 하나하나 출력해보자
 	}
 	cout << "\n";
 	for (int i = a_length; i < only_num_length; i++) { //b만 저장 
