@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -45,5 +46,5 @@ int main() {
 		v.push_back(temp); 	// v에 각자리수 저장
 	}
 
-	cout << is30(v);
+	cout << to_string(is30(v)); // 입력값을 문자열로 받았으므로 출력값도 문자열로 바꿔주기
 }
