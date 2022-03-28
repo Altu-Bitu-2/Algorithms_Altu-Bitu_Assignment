@@ -12,11 +12,9 @@ bool isGroup(string word, vector<int> check) {
 	check[word[0] - 'a'] = 1; // 첫번째 글자 업데이트  
 	for (int i = 0; i < word.size() - 1; i++) {
 		if (word[i] == word[i + 1]) continue; // 연속된 알파벳이 나오면 그룹 유지 
-		else { // 다른 알파벳이 나오면 
-			// 처음 등장하는 알파벳인지 체크
-			if (!isCheck(word[i + 1], check)) check[word[i + 1] - 'a'] = 1; // 처음 등장이면 check 업데이트
-			else return 0; // 이미 등장했으면 그룹 단어 아님	
-		}
+		// 다른 알파벳이 나오면 처음 등장하는 알파벳인지 체크
+		if (!isCheck(word[i + 1], check)) check[word[i + 1] - 'a'] = 1; // 처음 등장이면 check 업데이트
+		else return 0; // 이미 등장했으면 그룹 단어 아님	
 	}
 	return 1; // 끝까지 다 돌았으면 return 1 
 }
@@ -31,7 +29,6 @@ int main() {
 		string word;
 		cin >> word; // 단어 입력
 		groupNum += isGroup(word, check);  // 각 단어별로 그룹단어인지 확인 후 총 그룹단어 개수 업데이트
-		//fill(check.begin(), check.end(), 0); // 전역변수 check 초기화 
 	}
 
 	// 출력
