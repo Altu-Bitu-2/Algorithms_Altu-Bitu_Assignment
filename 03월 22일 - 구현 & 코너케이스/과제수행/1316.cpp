@@ -8,7 +8,7 @@ int isCheck(char c, vector<int> check) {
 	else return 0; // check 안되어있으면 0 return 
 }
 
-int isGroup(string word, vector<int> check) {
+bool isGroup(string word, vector<int> check) {
 	check[word[0] - 'a'] = 1; // 첫번째 글자 업데이트  
 	for (int i = 0; i < word.size() - 1; i++) {
 		if (word[i] == word[i + 1]) continue; // 연속된 알파벳이 나오면 그룹 유지 
