@@ -8,7 +8,9 @@ int isCheck(char c, vector<int> check) {
 	else return 0; // check 안되어있으면 0 return 
 }
 
-bool isGroup(string word, vector<int> check) {
+bool isGroup(string word) {
+	vector<int> check(26, 0); // 해당 알파벳이 문자열에서 등장했는지 확인해주는 vector
+
 	check[word[0] - 'a'] = 1; // 첫번째 글자 업데이트  
 	for (int i = 1; i < word.size(); i++) {
 		if (word[i-1] == word[i]) continue; // 연속된 알파벳이 나오면 그룹 유지 
@@ -23,12 +25,11 @@ int main() {
 	int n;
 	cin >> n; // 단어 개수 입력 
 
-	vector<int> check(26, 0); // 해당 알파벳이 문자열에서 등장했는지 확인해주는 vector
 	int groupNum = 0; // 그룹 단어 개수를 업데이트 해줄 변수
 	for (int i = 0; i < n; i++) {
 		string word;
 		cin >> word; // 단어 입력
-		groupNum += isGroup(word, check);  // 각 단어별로 그룹단어인지 확인 후 총 그룹단어 개수 업데이트
+		groupNum += isGroup(word);  // 각 단어별로 그룹단어인지 확인 후 총 그룹단어 개수 업데이트
 	}
 
 	// 출력
