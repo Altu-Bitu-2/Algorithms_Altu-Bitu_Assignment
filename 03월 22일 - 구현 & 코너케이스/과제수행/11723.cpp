@@ -64,6 +64,10 @@ void all() {
 }
 
 int main() {
+	// 입출력 속도 향상
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int m;
 	cin >> m;
 
