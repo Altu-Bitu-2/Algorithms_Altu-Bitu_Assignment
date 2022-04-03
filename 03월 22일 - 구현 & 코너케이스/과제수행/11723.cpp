@@ -38,7 +38,7 @@ void remove(int x) {
 	}
 	// x 없애기 
 	if (check(x)) {
-		s.erase(std::remove(s.begin(), s.end(), x));
+		s.erase(remove(s.begin(), s.end(), x));
 		return;
 	}
 	// x가 존재하지 않으면 연산 무시 
